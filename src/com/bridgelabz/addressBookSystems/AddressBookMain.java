@@ -2,41 +2,35 @@ package com.bridgelabz.addressBookSystems;
 import java.util.Scanner;
 public class AddressBookMain {
 	public static void main(String[] args) {
-		System.out.println("Welcome To Address Book"); // print welcome massage
-		AddressBook addressBook = new AddressBook();
-		Scanner scanner = new Scanner(System.in); // Create object
-		// initalize
-		int Number;
+        System.out.println("--------Welcome to Address Book Program-------");
+        int choice;
+        AddressBook addressBook = new AddressBook();
+        do {
+            System.out.println("1. Add New Contact\n2. Edit Contact\n3. Delete Contact" + "\n4. Display Contact\n5. Exit");
+            System.out.println("Enter Choice: ");
+            choice = addressBook.sc.nextInt();
 
-		/**
-		 * Enter number 1 to add this contacts details Enter number 2 to displaying
-		 * contact details Enter number 3 to Editing contacts details Enter number 4 to
-		 * Delete contact
-		 */
-		do {
-			System.out.println(" 1. Add Contact \n2. Display contact \n3.EDIT CONTACT \n4.DELETE CONTACT \n");
-			System.out.println("~Enter the Number~: ");
-			Number = scanner.nextInt();
-
-			switch (Number) {
-
-			case 1:
-				addressBook.addContact();
-				break;
-			case 2:
-				addressBook.showContacts();
-				break;
-			case 3:
-				addressBook.editContact();
-				break;
-			case 4:
-				addressBook.deleteContact();
-				break;
-			default:
-				System.out.println(" !!!Invalid Input!!! ");
-				break;
-
-			}
-		} while (Number < 4); // calling
-	}
+            switch (choice) {
+                case 1:
+                    addressBook.addNewContact();
+                    break;
+                case 2:
+                    addressBook.editContact();
+                    break;
+                case 3:
+                    addressBook.deleteContact();
+                    break;
+                case 4:
+                    addressBook.displayContact();
+                    break;
+                case 5:
+                    System.out.println("Thank You for Using Address Book.");
+                    break;
+                default:
+                    System.out.println("Please Select between 1 to 5 only.");
+                    break;
+            }
+        }
+        while( choice != 5 );
+    }
 }
