@@ -3,15 +3,15 @@ import java.util.Scanner;
 import java.util.ArrayList;
 public class AddressBook{
 	Scanner scanner = new Scanner(System.in);
-	Contact contact = new Contact();
-	ArrayList<Contact> contactsArrayList = new ArrayList<Contact>();
-	
+	ContactPerson contact = new ContactPerson();
+	ArrayList<ContactPerson> contactsArrayList = new ArrayList<ContactPerson>();
+
 	/*
 	 * Adding contacts
 	 */
 	public void addContact() {
-		Contact contact = new Contact();
-		
+		ContactPerson contact = new ContactPerson();
+
 		System.out.println("Enter your FirstName: ");
 		contact.setFirstName(scanner.next());
 		System.out.println("Enter your LastName: ");
@@ -28,20 +28,21 @@ public class AddressBook{
 		contact.setZip(scanner.nextInt());
 		System.out.println("Enter your Mobile Number: ");
 		contact.setMobile(scanner.nextLong());
-		
+
 		contactsArrayList.add(contact);
 	}
+
 	/*
 	 * Print out on all contacts using method contact class
 	 */
 	public void showContacts() {
 		System.out.println(contact.toString());
 		for (int i = 0; i < contactsArrayList.size(); i++) {
-			Contact contacts = contactsArrayList.get(i);
+			ContactPerson contacts = contactsArrayList.get(i);
 			System.out.println(contacts.toString());
 		}
 	}
-	
+
 	public void editContact() {
 		/*
 		 * Ability to edit existing contact person using their
@@ -50,7 +51,7 @@ public class AddressBook{
 		String FirstName = (scanner.next());
 		boolean IsAvaible = false;
 
-		for (Contact contact : contactsArrayList) {
+		for (ContactPerson contact : contactsArrayList) {
 			if (contact.getFirstName().equals(FirstName)) {
 				IsAvaible = true;
 
@@ -78,7 +79,30 @@ public class AddressBook{
 		if (IsAvaible == false) {
 			System.out.println("Contact Doesn't exist.");
 		}
-	
+
 	}
+
+	/*
+	 * Ability to delete a person using persons name
+	 */
+	public void deleteContact() {
+		System.out.println("Enter the First Name to Delete: ");
+		String FirstName = (scanner.next());
+		boolean IsAvaible = false;
+
+		for (ContactPerson contact : contactsArrayList) {
+			if (contact.getFirstName().equalsIgnoreCase(FirstName)) {
+				IsAvaible = true;
+				contactsArrayList.remove(contact);
+				System.out.println("!!Deleted!!");
+				break;
+			}
+		}
+		if (IsAvaible == false) {
+			System.out.println("Doesn't exist.");
+		}
+
+	}
+
 }
 
