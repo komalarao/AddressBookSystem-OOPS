@@ -1,26 +1,66 @@
 package com.bridgelabz.addressBookSystems;
 
 public class Contact {
-	public void createContact() {
-		final String firstName = "kartheek";
-	    final String lastName = "vakamullu";
-	    final long phoneNumber = 987654321;
-	    final String email = "manoharvakamullu1999@gmail.com";
-	    
-	    System.out.println("firstName:"+firstName);
-	    System.out.println("lastName:"+lastName);
-	    System.out.println("phoneNumber:"+phoneNumber);
-	    System.out.println("email:"+email);
-
-
-		}public void address() {
-		    System.out.println("address of the contact is:");
-		  final String city = "srikakulam";
-		  final String state = "andhraPradesh";
-		  final long zip = 532484;
-		    System.out.println("city:"+city);
-		    System.out.println("state:"+state);
-		    System.out.println("zip:"+zip);
-
-		}
+	private String firstName, lastName, email, address, city, state;
+	private int zip;
+	private long mobile;
+	public String getFirstName() {
+		return firstName;
+	}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
+	}
+	public int getZip() {
+		return zip;
+	}
+	public void setZip(int zip) {
+		this.zip = zip;
+	}
+	public long getMobile() {
+		return mobile;
+	}
+	public void setMobile(long mobile) {
+		this.mobile = mobile;
+	}
+	@Override
+	//calling to ContactPerson
+	public String toString() {
+		return "ContactPerson [firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + ", address="
+				+ address + ", city=" + city + ", state=" + state + ", zip=" + zip + ", mobile=" + mobile
+				+ ", getFirstName()=" + getFirstName() + ", getLastName()=" + getLastName() + ", getEmail()="
+				+ getEmail() + ", getAddress()=" + getAddress() + ", getCity()=" + getCity() + ", getState()="
+				+ getState() + ", getZip()=" + getZip() + ", getMobile()=" + getMobile() + ", getClass()=" + getClass()
+				+ ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
+	}
+	
 }
